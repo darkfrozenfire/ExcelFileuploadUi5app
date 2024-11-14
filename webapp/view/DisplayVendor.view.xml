@@ -1,0 +1,134 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="vendornamespace.productionplanning.controller.DisplayVendor">
+
+    <Page title="Vendor List">
+        <VBox class="mainContainer">
+            <!-- Button Group -->
+            <Toolbar>
+                <ToolbarSpacer />
+                <Text text="Records per page:" />
+                <Input id="pageSizeInput" type="Number" value="10" liveChange="onPageSizeChange" width="50px" />
+                <Button 
+                    icon="sap-icon://multiselect-all"
+                    press=".onSelectAllPress"
+                    tooltip="Select All"
+                    class="myButton" />
+                
+                <Button 
+                    icon="sap-icon://multiselect-none"
+                    press=".onDeselectAllPress"
+                    tooltip="Deselect All"
+                    class="myButton" />
+                
+                <Button 
+                    icon="sap-icon://save"
+                    press=".onSaveChangesPress"
+                    tooltip="Save Changes"
+                    class="myButton" />
+            </Toolbar>
+
+            <!-- First Table Container -->
+            <ScrollContainer horizontal="true" class="scrollContainer">
+                <Table items="{vendorListModel>/vendors}" class="responsiveTable" width="auto">
+                    <columns>
+                        <Column width="150px">
+                            <Text text="Full Name" />
+                        </Column>
+                        <Column width="150px">
+                            <Text text="Email" />
+                        </Column>
+                        <Column width="150px">
+                            <Text text="Phone Number" />
+                        </Column>
+                        <Column width="150px">
+                            <Text text="Date of Birth" />
+                        </Column>
+                        <Column width="200px">
+                            <Text text="Action" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{vendorListModel>fullName}" />
+                                <Text text="{vendorListModel>email}" />
+                                <Text text="{vendorListModel>phoneNumber}" />
+                                <Text text="{vendorListModel>dob}" />
+                                <HBox class="actionButtons">
+                                    <Button icon="sap-icon://edit"   press=".onEditPress" />
+                                    <Button icon="sap-icon://delete" press=".onDeletePress" />
+                                    <Button icon="sap-icon://accept" press=".onApprovePress" />
+                                    <Button icon="sap-icon://email"  press=".onMailPress" />
+                                </HBox>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </ScrollContainer>
+
+            <!-- Spacer -->
+            <VBox height="20px" />
+
+            <!-- Second Table Container -->
+            <ScrollContainer horizontal="true" class="scrollContainer">
+                <Table items="{vendorListModel>/pagedUploadedData}" class="responsiveTable" width="auto">
+                    <columns>
+                        <Column width="50px">
+                            <Text text="Select" />
+                        </Column>
+                        <Column width="100px">
+                            <Text text="Plant" />
+                        </Column>
+                        <Column width="150px">
+                            <Text text="Production Line" />
+                        </Column>
+                        <Column width="150px">
+                            <Text text="Vin Number" />
+                        </Column>
+                        <Column width="150px">
+                            <Text text="Material" />
+                        </Column>
+                        <Column width="150px">
+                            <Text text="Model Number" />
+                        </Column>
+                        <Column width="200px">
+                            <Text text="Action" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <CheckBox selected="{vendorListModel>editable}" select=".onCheckboxSelect" />
+                                <Text text="{vendorListModel>plant}" />
+                                <Text text="{vendorListModel>productionline}" />
+                                <Text text="{vendorListModel>vinnr}" />
+                                <Text text="{vendorListModel>material}" />
+                                <Text text="{vendorListModel>modelnumber}" />
+                                <HBox class="actionButtons">
+                                    <Button icon="sap-icon://edit" press=".onEditPress" />
+                                    <Button icon="sap-icon://delete" press=".onDeletePress" />
+                                    <Button icon="sap-icon://accept" press=".onApprovePress" />
+                                    <Button icon="sap-icon://email" press=".onMailPress" />
+                                </HBox>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </ScrollContainer>
+
+            <!-- Pagination Controls -->
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button icon="sap-icon://close-command-field" press="onFirstPress" enabled="{vendorListModel>/isPrevEnabled}" />
+                <Button icon="sap-icon://navigation-left-arrow" press="onPreviousPress" enabled="{vendorListModel>/isPrevEnabled}" />
+                <Input value="{vendorListModel>/currentPage}" type="Number" width="50px" liveChange="onPageInputChange"/>
+                <Text text="of {vendorListModel>/totalPages}" />
+                <Button icon="sap-icon://navigation-right-arrow" press="onNextPress" enabled="{vendorListModel>/isNextEnabled}" />
+                <Button icon="sap-icon://open-command-field" press="onLastPress" enabled="{vendorListModel>/isNextEnabled}" />
+                <ToolbarSpacer />
+            </OverflowToolbar>
+        </VBox>
+    </Page>
+</mvc:View>

@@ -1,0 +1,44 @@
+/* Enter your custom styles here */
+.mainContainer {
+    padding: 20px;
+    background-color: #f7f7f7; /* Light background for contrast */
+}
+
+.myButton {
+    margin: 0 5px;
+    min-width: 100px; /* Consistent button width */
+}
+
+.scrollContainer {
+    overflow-x: auto; /* Enables horizontal scrolling */
+    margin-top: 10px; /* Spacing between elements */
+    width: 100%; /* Full width for the scroll container */
+}
+
+.responsiveTable {
+    min-width: 900px; /* Adjust to ensure full visibility of all columns */
+}
+
+.responsiveTable .sapMText {
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+.actionButtons {
+    display: flex;
+    gap: 5px; /* Space between action buttons */
+}
+
+@media (max-width: 600px) {
+    .myButton {
+        flex: 1; /* Makes buttons flexible on small screens */
+        margin: 5px 0;
+    }
+
+    .actionButtons {
+        flex-wrap: nowrap; /* Keeps action buttons in a single line */
+    }
+}
+
+
+
+
+  

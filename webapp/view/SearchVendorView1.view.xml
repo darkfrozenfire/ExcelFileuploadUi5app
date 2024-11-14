@@ -1,0 +1,40 @@
+<mvc:View controllerName="vendornamespace.productionplanning.controller.SearchVendorView1"
+     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:unified="sap.ui.unified"
+    >
+    <Page id="page" title="{i18n>title}">
+        <content>
+                  <FlexBox id="_IDGenFlexBox"  alignItems="Center" 
+                  justifyContent="Center" 
+                  direction="Column"
+                  height="100%" 
+                  width="100%">
+
+                <VBox id="_IDGenVBox" width="50%" class="sapUiResponsiveMargin" alignItems="Stretch" justifyContent="Center">
+                    <Title text="Vendor Information" level="H2" titleStyle="H2" class="sapUiSmallMarginBottom" />
+
+                    <Label text="Full Name" />
+                    <Input id="fullNameInput" placeholder="Enter Vendor name..." />
+
+                    <Label text="Email Address" class="sapUiSmallMarginTop" />
+                    <Input id="emailInput" type="Email" placeholder="Enter Vendor email address..." />
+
+                    <Label text="Password" class="sapUiSmallMarginTop" />
+                    <Input id="passwordInput" type="Password" placeholder="Enter your password..." />
+
+                    <Label text="Phone Number" class="sapUiSmallMarginTop" />
+                    <Input id="phoneNumberInput" type="Number" placeholder="Enter your phone number..." />
+
+                    <Label text="Date of Birth" class="sapUiSmallMarginTop" />
+                    <DatePicker id="dobInput" placeholder="Select your date of birth..." />
+
+                     <Label text="Upload Excel File" class="sapUiSmallMarginTop" />
+                   <unified:FileUploader id="excelUploader" fileType="xlsx" placeholder="Choose an Excel file" width="100%" change="onFileUpload" />
+
+                    <Button text="Submit" type="Emphasized" press="onSubmitPress" class="sapUiMediumMarginTop" />
+                </VBox> 
+        </FlexBox>
+        </content>
+    </Page>
+</mvc:View>
